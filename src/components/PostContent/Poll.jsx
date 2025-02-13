@@ -22,9 +22,9 @@ const Poll = ({ post_id, total_votes, poll }) => {
     if (!state.auth?.id || !pollKey) return;
 
     setLoading(true);
-    try {
-      if (!is_voted) {
-        axios.post(
+    if (!is_voted) {
+      axios
+        .post(
           `${BASE_URL}/vote/${post_id}/${poll.id}`,
           {},
           {
@@ -32,19 +32,26 @@ const Poll = ({ post_id, total_votes, poll }) => {
               Authorization: `Bearer ${token}`,
             },
           }
-        );
-      } else {
-        axios.delete(`${BASE_URL}/vote/${post_id}/${poll.id}`, {
+        )
+        .then((response) => {
+          updatePost(response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
+        });
+    } else {
+      axios
+        .delete(`${BASE_URL}/vote/${post_id}/${poll.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
+        })
+        .then((response) => {
+          updatePost(response.data);
+        })
+        .catch((error) => {
+          setLoading(false);
         });
-      }
-      // updatePost(response.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
     }
   };
 

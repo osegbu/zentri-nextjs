@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zentri - A Social Media Site
+
+This is the **frontend** of Zentri, built with [Next.js](https://nextjs.org).
 
 ## Getting Started
 
@@ -34,3 +36,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Backend Repository
+
+The backend for this project is built using **FastAPI**. You can find the repository for the backend [here](https://github.com/osegbu/zentri-backend).
+
+## Have A Feedback?
+
+Feel free to reach out to me!
+
+- **Email**: [valentineosegbu@gmail.com](mailto:valentineosegbu@gmail.com)
+- **LinkedIn**: [Obinna Osegbu](https://www.linkedin.com/in/obinna-osegbu-746995174/)
+- **Twitter**: [@obinna_osegbu](https://twitter.com/obinna_osegbu)
+- **GitHub Issues**: You can also open an issue on this repository if it's related to the project.

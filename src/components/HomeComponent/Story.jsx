@@ -43,8 +43,10 @@ const Story = ({ slug }) => {
 
   if (loading) {
     return (
-      <div className={styles.loadingPost}>
-        <div className={styles.loader}></div>
+      <div className={styles.container}>
+        <div className={styles.loadingPost}>
+          <div className={styles.loader}></div>
+        </div>
       </div>
     );
   }

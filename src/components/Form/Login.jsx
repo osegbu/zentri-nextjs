@@ -32,7 +32,10 @@ const Login = () => {
       setMessage();
 
       axios
-        .post(`${BASE_URL}/users/login`, formData)
+        .post(`${BASE_URL}/users/login`, {
+          user_name: formData.user_name.trim(),
+          hashed_password: formData.hashed_password,
+        })
         .then((response) => {
           setMessage({
             type: "success",

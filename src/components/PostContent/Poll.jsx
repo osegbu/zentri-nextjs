@@ -26,26 +26,26 @@ const Poll = ({ post_id, total_votes, poll }) => {
     try {
       let response;
       if (!is_voted) {
-        // response = await axios.post(
-        //   `${BASE_URL}/vote/${post_id}/${poll.id}`,
-        //   {},
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${token}`,
-        //     },
-        //   }
-        // );
+        response = await axios.post(
+          `${BASE_URL}/vote/${post_id}/${poll.id}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
       } else {
-        // response = await axios.delete(
-        //   `${BASE_URL}/vote/${post_id}/${poll.id}`,
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${token}`,
-        //     },
-        //   }
-        // );
+        response = await axios.delete(
+          `${BASE_URL}/vote/${post_id}/${poll.id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
       }
-      // updatePost(response.data);
+      updatePost(response.data);
     } catch (error) {
       console.error(error.response?.data?.detail);
     } finally {

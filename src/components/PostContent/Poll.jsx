@@ -45,7 +45,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
           }
         );
       }
-      updatePost(response.data);
+      // updatePost(response.data);
     } catch (error) {
       console.error(error.response?.data?.detail);
     } finally {

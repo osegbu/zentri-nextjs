@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Backend Repository
 
-The backend for this project is built using **FastAPI**. You can find the repository for the backend [here](https://github.com/osegbu/zentri-backend).
+The backend for this project is built using **FastAPI**. You can find the repository for the backend [here](https://github.com/osegbu/zentri).
 
 ## Have A Feedback?
 

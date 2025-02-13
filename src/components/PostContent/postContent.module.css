@@ -1,0 +1,367 @@
+.container {
+  padding: 16px;
+  border-radius: 8px;
+  background: #fbfafa;
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  height: fit-content;
+}
+.moreOptions {
+  background-color: white;
+  list-style: none;
+  position: absolute;
+  top: 36px;
+  right: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.moreOptions li {
+  padding: 8px 16px;
+  font-size: 0.95rem;
+}
+.moreOptions li:hover {
+  cursor: pointer;
+  background-color: #fcfafa;
+}
+.postOpt {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.postOpt svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: black;
+}
+.postOpt:hover {
+  background-color: #f2f2f2;
+}
+.container:hover {
+  background: var(--background_2);
+}
+.pollCon {
+  margin-top: 12px;
+}
+.imageContainer {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  gap: 3px;
+}
+.imageContainer2 {
+  height: 300px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.postImage {
+  background-color: rgb(219, 219, 219);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.postImage img {
+  margin-bottom: -8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageContainer3,
+.imageContainer4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  height: 300px;
+}
+.imageContainer3 .postImage:nth-child(1) {
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
+}
+.imageContainer3 .postImage:nth-child(2) {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+.imageContainer3 .postImage:nth-child(3) {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+
+.imageContainer4 .postImage:nth-child(1) {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+.imageContainer4 .postImage:nth-child(2) {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+}
+.imageContainer4 .postImage:nth-child(3) {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+}
+.imageContainer4 .postImage:nth-child(4) {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+}
+.commentCon {
+  background: white;
+  display: flex;
+  gap: 16px;
+  height: fit-content;
+}
+.replyingTO {
+  margin: 16px 0;
+  color: var(--soft_text);
+  font-size: 0.9rem;
+}
+.link {
+  color: rgb(22, 69, 226);
+}
+
+.profileImage {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fcfafa;
+  border: 1px solid var(--border);
+}
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.fullName {
+  font-size: 0.85rem;
+}
+.username {
+  color: var(--soft_text);
+  font-size: 0.85rem;
+  text-transform: lowercase;
+}
+.postBody {
+  margin-top: 2px;
+  font-size: 0.92rem;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.dot {
+  flex-shrink: 0;
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  margin-top: 3px;
+  margin-left: 2px;
+  background-color: var(--soft_text);
+}
+.time {
+  color: var(--soft_text);
+  font-size: 0.8rem;
+}
+.postAction {
+  margin-left: -8px;
+  height: 20px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  position: relative;
+}
+.actionElement button {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+.actionElement {
+  display: flex;
+  flex-shrink: 0;
+  width: fit-content;
+  align-items: center;
+}
+.actionText {
+  color: var(--soft_text);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+.SVG {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: var(--soft_text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.L_SVG {
+  fill: rgb(249, 24, 128) !important;
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.B_SVG {
+  fill: rgb(29, 155, 240) !important;
+  width: 1.25rem;
+  height: 1.25rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.likeElement:hover button {
+  background-color: rgba(249, 24, 128, 0.2);
+}
+.likeElement:hover .SVG,
+.likeElement:hover .actionText {
+  color: rgb(249, 24, 128);
+  fill: rgb(249, 24, 128);
+}
+
+.commentElement:hover button {
+  background-color: rgba(0, 131, 0, 0.2);
+}
+.commentElement:hover .SVG,
+.commentElement:hover .actionText {
+  color: rgb(0, 131, 0);
+  fill: rgb(0, 131, 0);
+}
+
+.bookmarkElement {
+  position: absolute;
+  right: 0;
+}
+.bookmarkElement:hover button {
+  background-color: rgba(29, 155, 240, 0.2);
+}
+.bookmarkElement:hover .SVG,
+.bookmarkElement:hover .actionText {
+  color: rgb(29, 155, 240);
+  fill: rgb(29, 155, 240);
+}
+.postDetails {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.pollDiv {
+  color: var(--text);
+  margin-top: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 0.95rem;
+  display: flex;
+  width: 100%;
+  position: relative;
+  border: 2px solid var(--border);
+}
+.pollDiv:hover {
+  cursor: pointer;
+  background-color: silver;
+}
+.voted {
+  background-color: var(--background_2);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.pollText {
+  width: 100%;
+  padding: 8px;
+}
+.voteCount {
+  padding: 8px;
+}
+.totalVote {
+  padding-top: 8px;
+}
+.pollDiv.active:hover {
+  color: black;
+  border-color: black;
+}
+.pollDiv.active .voted {
+  background-color: rgba(0, 102, 255, 0.1);
+}
+.pollDiv.active {
+  color: #0066ff;
+  border-color: #0066ff;
+  font-weight: 600;
+}
+.loadingPoll {
+  display: inline-block;
+  border: 2px solid silver;
+  border-left-color: blue;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  margin: 0 8px -3px 0;
+}
+.bkLoading {
+  border: 2px solid silver;
+  border-left-color: blue;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 0 5px;
+}
+.loading {
+  border: 2px solid silver;
+  border-left-color: rgb(249, 24, 128);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 0 5px;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 640px) {
+  .container {
+    background-color: white;
+    margin-top: 0px;
+    border-radius: 0px;
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .container:hover {
+    background-color: #fdfdfd;
+  }
+  .pollDiv:hover {
+    background-color: #f2f2f2;
+  }
+  .profileImage {
+    height: 40px;
+    width: 40px;
+  }
+}

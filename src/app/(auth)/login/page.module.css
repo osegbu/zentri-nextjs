@@ -1,0 +1,94 @@
+.mainContainer {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.container {
+  padding-left: 25vw;
+  padding-right: 30vw;
+}
+.leftContainer {
+  padding-left: 40px;
+  flex-shrink: 0;
+  width: 23vw;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+.rightContainer {
+  padding-right: 40px;
+  flex-shrink: 0;
+  width: 28vw;
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.leftContainer::-webkit-scrollbar,
+.rightContainer::-webkit-scrollbar {
+  width: 6px;
+}
+.leftContainer::-webkit-scrollbar-thumb,
+.rightContainer::-webkit-scrollbar-thumb {
+  background-color: #818181;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.leftContainer::-webkit-scrollbar-thumb:hover,
+.rightContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #636262;
+}
+.leftContainer::-webkit-scrollbar-track,
+.rightContainer::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding-left: 10vw;
+    padding-right: 35vw;
+  }
+  .leftContainer {
+    padding-left: 16px;
+    width: 10vw;
+  }
+  .rightContainer {
+    padding-right: 16px;
+    width: 33vw;
+  }
+}
+@media (max-width: 940px) {
+  .container {
+    padding-left: 16vw;
+    padding-right: 16px;
+  }
+  .leftContainer {
+    padding-left: 16px;
+    width: 16vw;
+  }
+  .rightContainer {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .page {
+    margin-bottom: 52px;
+    margin-top: 57px;
+  }
+  .mainContainer {
+    margin: 0px;
+    display: block;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+  .container {
+    padding: 0px;
+  }
+  .leftContainer {
+    display: none;
+  }
+}

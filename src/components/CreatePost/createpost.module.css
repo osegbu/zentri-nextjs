@@ -1,0 +1,275 @@
+.container {
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--background_1);
+  margin-bottom: 16px;
+}
+.loading {
+  border: 2px solid silver;
+  border-left-color: white;
+  border-radius: 50%;
+  width: 20px !important;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  margin: 0 5px;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.inputContainer {
+  display: flex;
+  gap: 16px;
+}
+.profileImage {
+  flex-shrink: 0;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fcfafa;
+  border: 1px solid var(--border);
+}
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.textArea {
+  width: 100%;
+}
+.inputDiv:empty::before {
+  content: "What's happening?";
+  color: var(--soft_text);
+}
+.inputDiv:empty {
+  padding: 12px 0;
+}
+.inputDiv {
+  min-height: 45px;
+  max-height: 300px;
+  margin-bottom: 16px;
+  overflow-y: auto;
+  width: 100%;
+  background-color: transparent;
+  color: var(--text);
+  resize: none;
+  border: 0px;
+  padding: 0;
+  font-size: 1rem;
+  outline: none;
+}
+.others {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 8px;
+}
+.others button {
+  padding: 8px 16px;
+  border-radius: 50px;
+  border: none;
+  color: var(--text);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.others button:disabled {
+  cursor: not-allowed !important;
+  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.others button:disabled:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.others button:hover {
+  color: black;
+  background-color: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.sendButton {
+  font-size: 0.95rem;
+  width: 120px;
+  border: none !important;
+  color: white !important;
+  background-color: #1d9bf0 !important;
+}
+.sendButton:active:not(:disabled) {
+  border: 4px solid #7bc3f3 !important;
+}
+.sendButton:hover:not(:disabled) {
+  background-color: #1a84ca !important;
+}
+.others button div {
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.SVG {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.Remove_SVG {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: white;
+}
+.imagePreview {
+  flex-shrink: 0;
+  margin: 8px 0;
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  overflow-x: auto;
+}
+.oneImageContainer {
+  width: 100%;
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+.oneImageContainer img,
+.oneImageContainer video {
+  width: 100%;
+  margin-bottom: -4px;
+}
+.imageContainer {
+  height: 240px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+.imageContainer img,
+.imageContainer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.removeButton {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+.removeButton:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.container section {
+  max-height: 300px;
+}
+.pollContainer {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid silver;
+}
+.optionsDiv {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.options {
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid silver;
+  background-color: transparent;
+  width: 100%;
+  font-size: 1rem;
+}
+.actionSide {
+  position: relative;
+  width: 60px;
+}
+.cancelButton {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 6px;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.addButton {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: 6px;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.Poll_SVG {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+@media (max-width: 640px) {
+  .imageContainer {
+    height: 180px;
+  }
+  .container {
+    display: none;
+  }
+  .inputDiv:empty {
+    padding: 8px 0px;
+  }
+  .inputDiv {
+    padding: 0px;
+    max-height: 100%;
+  }
+  .imagePreview {
+    margin: 0;
+    margin-top: 8px;
+  }
+  .profileImage {
+    height: 40px;
+    width: 40px;
+  }
+  .others {
+    width: 100%;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-top: 1px solid var(--border);
+  }
+  .others button {
+    height: 40px;
+    width: 40px;
+    position: relative;
+  }
+  .others button div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .sendButton {
+    width: 100px !important;
+  }
+  .text {
+    display: none !important;
+  }
+}

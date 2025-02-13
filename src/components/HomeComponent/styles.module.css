@@ -1,0 +1,66 @@
+.comments {
+  padding-left: 16px;
+  border-left: 2px solid #e0e0e0;
+  margin-left: 8px;
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.mainPost {
+  margin-top: 16px;
+}
+.comments > div,
+.profile > div {
+  padding-top: 16px;
+}
+.loadingPost {
+  position: relative;
+  padding: 16px;
+}
+.loader {
+  border: 3px solid silver;
+  border-left-color: blue;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .mainPost {
+    margin: 0;
+  }
+  .comments > div,
+  .profile > div {
+    padding: 0;
+  }
+  .home {
+    gap: 0;
+  }
+  .comments {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+  }
+  .comments > div > div {
+    padding-left: 56px;
+  }
+  .mainPost > div > div {
+    background-color: #fcfafa;
+  }
+  .container {
+    margin-top: 56px;
+  }
+}

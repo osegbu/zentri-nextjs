@@ -1,0 +1,214 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+.leftSide {
+  width: 100%;
+  flex-shrink: 0;
+}
+.topPart {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+.login {
+  padding: 8px;
+}
+.linkList {
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.linkText {
+  font-size: 1rem;
+}
+.linkList.active button {
+  background-color: var(--background_2);
+}
+.linkList.active .linkText {
+  font-weight: bold;
+}
+.SVG {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: var(--text);
+}
+.threeDots {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--text);
+  margin-right: 16px;
+}
+.linkButton {
+  width: fit-content;
+  background-color: transparent;
+  padding: 16px;
+  padding-right: 32px;
+  color: var(--text);
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.linkList:hover button {
+  background-color: var(--background_1);
+  cursor: pointer;
+}
+.createPost {
+  text-align: center;
+  padding: 12px;
+  width: 100%;
+  background-color: var(--background_1);
+  color: var(--text);
+  border-radius: 50px;
+}
+.createPost:hover {
+  cursor: pointer;
+  background: var(--background_2);
+}
+.logo {
+  margin-left: 16px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 1.5rem;
+  color: blue;
+}
+.profileImage {
+  flex-shrink: 0;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fcfafa;
+  border: 1px solid var(--border);
+}
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.userProfile:hover {
+  background-color: var(--background_2);
+  cursor: pointer;
+}
+.userProfile {
+  margin-bottom: 32px;
+  width: 100%;
+  background-color: var(--background_1);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+}
+.username {
+  width: 100%;
+  margin-top: -3px;
+}
+.options {
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+.optionsEl {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+.optionsEl:hover {
+  cursor: pointer;
+  background-color: #f2f2f2;
+}
+.text {
+  font-size: 0.95rem;
+  width: 100%;
+}
+.composeButton {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  display: none;
+  background-color: transparent;
+}
+.loading {
+  flex-shrink: 0;
+  border: 2px solid silver;
+  border-left-color: black;
+  border-radius: 50%;
+  width: 20px !important;
+  height: 20px !important;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (max-width: 1200px) {
+  .linkText {
+    display: none;
+  }
+  .linkButton {
+    padding: 0;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+  }
+  .SVG {
+    margin: auto;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .logo {
+    margin-left: 8px;
+  }
+  .composeButton {
+    display: inline;
+    cursor: pointer;
+  }
+  .createPost,
+  .userProfile {
+    padding: 0;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  .profileImage {
+    width: 100%;
+    height: 100%;
+  }
+  .username {
+    display: none;
+  }
+  .createPost b {
+    display: none;
+  }
+  .options {
+    position: fixed;
+    width: 200px;
+    bottom: 80px;
+  }
+}
+
+@media (max-width: 940px) {
+  .topPart {
+    gap: 8px;
+  }
+}

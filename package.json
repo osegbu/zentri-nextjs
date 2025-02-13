@@ -1,0 +1,25 @@
+{
+  "name": "social",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.699.0",
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@next/swc-win32-x64-msvc": "^15.0.1",
+    "axios": "^1.7.9",
+    "js-cookie": "^3.0.5",
+    "next": "15.0.1",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "15.0.1"
+  }
+}

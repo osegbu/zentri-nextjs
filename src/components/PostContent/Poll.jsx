@@ -27,7 +27,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
       let response;
       if (!is_voted) {
         response = await axios.post(
-          `${BASE_URL}/vote/${post_id}/${poll.id}`,
+          `${BASE_URL}/votes/${post_id}/${poll.id}`,
           {},
           {
             headers: {
@@ -37,7 +37,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
         );
       } else {
         response = await axios.delete(
-          `${BASE_URL}/vote/${post_id}/${poll.id}`,
+          `${BASE_URL}/votes/${post_id}/${poll.id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

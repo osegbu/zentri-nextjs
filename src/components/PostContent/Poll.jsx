@@ -5,10 +5,9 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 const Poll = ({ post_id, total_votes, poll }) => {
-  const { state, updatePost } = useStore();
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-
   const token = Cookies.get("sessionData");
+  const { state, updatePost } = useStore();
 
   const [loading, setLoading] = useState(false);
 
@@ -19,11 +18,6 @@ const Poll = ({ post_id, total_votes, poll }) => {
   };
 
   const vote = async (poll_id) => {
-    if (!state.auth?.id || !token) {
-      console.error("User not authenticated or token missing");
-      return;
-    }
-
     setLoading(true);
 
     try {
@@ -38,21 +32,16 @@ const Poll = ({ post_id, total_votes, poll }) => {
       );
       updatePost(response.data);
     } catch (error) {
-      console.error(
-        "Error casting vote:",
-        error.response?.data || error.message
-      );
+      // console.error(
+      //   "Error casting vote:",
+      //   error.response?.data || error.message
+      // );
     } finally {
       setLoading(false);
     }
   };
 
   const remove_vote = async (poll_id) => {
-    if (!state.auth?.id || !token) {
-      console.error("User not authenticated or token missing");
-      return;
-    }
-
     setLoading(true);
 
     try {

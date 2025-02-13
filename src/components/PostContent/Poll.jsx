@@ -25,9 +25,9 @@ const Poll = ({ post_id, total_votes, poll }) => {
     let response;
     try {
       if (!is_voted) {
-        response = `${BASE_URL}/vote/${post_id}/${poll.id}`;
+        response = await axios.post(`${BASE_URL}/vote/${post_id}/${poll.id}`);
       } else {
-        response = `${BASE_URL}/vote/${post_id}/${poll.id}`;
+        response = await axios.delete(`${BASE_URL}/vote/${post_id}/${poll.id}`);
       }
       // updatePost(response.data);
     } catch (error) {

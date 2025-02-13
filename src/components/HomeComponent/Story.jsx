@@ -22,7 +22,6 @@ const Story = ({ slug }) => {
       });
       setPost([response.data]);
     } catch (error) {
-      console.error("Error fetching post:", error);
       setLoading(false);
     }
   }, [slug, setPost, token, BASE_URL]);

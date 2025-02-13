@@ -40,16 +40,6 @@
 .inputCon:focus-within {
   outline: 2px solid black;
 }
-.checkBox {
-  margin-top: 16px;
-  display: flex;
-  align-items: center;
-}
-.checkBox input {
-  height: 18px;
-  width: 18px;
-  margin-right: 8px;
-}
 .messageBox {
   display: flex;
   gap: 8px;

@@ -47,9 +47,11 @@ const Login = () => {
           window.location.replace("/");
         })
         .catch((error) => {
-          console.log(error);
           setLoading(false);
-          setMessage({ type: "error", message: error.message });
+          setMessage({
+            type: "error",
+            message: error.response?.data?.detail || error.message,
+          });
         });
     },
     [formData]
@@ -135,10 +137,6 @@ const Login = () => {
                 </svg>
               )}
             </span>
-          </div>
-
-          <div className={styles.checkBox}>
-            <input type="checkbox" name="checkbox" /> Remember Me
           </div>
 
           {message && (

@@ -19,16 +19,22 @@ const Poll = ({ post_id, total_votes, poll }) => {
   };
 
   const castVote = async (pollKey, is_voted) => {
-    if (!state.auth?.id || !pollKey) return;
-    console.log(typeof parseInt(post_id));
+    if (!state.auth?.id || !pollKey || loading) {
+      console.log(
+        "Cannot cast vote, either user is not authenticated or pollKey is invalid."
+      );
+      return;
+    }
 
     setLoading(true);
+    console.log("Casting vote...");
 
     try {
       let response;
       if (!is_voted) {
+        console.log("Voting for option...");
         response = await axios.post(
-          `${BASE_URL}/vote/${parseInt(post_id)}/${parseInt(pollKey)}`,
+          `${BASE_URL}/vote/${post_id}/${poll.id}`,
           {},
           {
             headers: {
@@ -37,8 +43,9 @@ const Poll = ({ post_id, total_votes, poll }) => {
           }
         );
       } else {
+        console.log("Removing vote...");
         response = await axios.delete(
-          `${BASE_URL}/vote/${parseInt(post_id)}/${parseInt(pollKey)}`,
+          `${BASE_URL}/vote/${post_id}/${poll.id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -46,9 +53,10 @@ const Poll = ({ post_id, total_votes, poll }) => {
           }
         );
       }
+      console.log("Vote successful:", response.data);
       updatePost(response.data);
     } catch (error) {
-      console.error(error.response?.data?.detail);
+      console.error("Error during voting:", error);
     } finally {
       setLoading(false);
     }

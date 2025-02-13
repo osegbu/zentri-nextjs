@@ -28,6 +28,14 @@ const Login = () => {
     async (e) => {
       e.preventDefault();
 
+      if (formData.hashed_password.length < 6) {
+        setMessage({
+          type: "error",
+          message: "Password must be at least 6 characters long.",
+        });
+        return;
+      }
+
       setLoading(true);
       setMessage();
 
@@ -51,6 +59,7 @@ const Login = () => {
         })
         .catch((error) => {
           setLoading(false);
+          console.log(error);
           setMessage({
             type: "error",
             message: error.response?.data?.detail || error.message,

@@ -20,6 +20,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
 
   const castVote = async (pollKey, is_voted) => {
     if (!state.auth?.id || !pollKey) return;
+    console.log(typeof parseInt(post_id));
 
     setLoading(true);
 
@@ -27,7 +28,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
       let response;
       if (!is_voted) {
         response = await axios.post(
-          `${BASE_URL}/vote/${post_id}/${poll.id}`,
+          `${BASE_URL}/vote/${parseInt(post_id)}/${parseInt(pollKey)}`,
           {},
           {
             headers: {
@@ -37,7 +38,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
         );
       } else {
         response = await axios.delete(
-          `${BASE_URL}/vote/${post_id}/${poll.id}`,
+          `${BASE_URL}/vote/${parseInt(post_id)}/${parseInt(pollKey)}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -45,7 +46,7 @@ const Poll = ({ post_id, total_votes, poll }) => {
           }
         );
       }
-      // updatePost(response.data);
+      updatePost(response.data);
     } catch (error) {
       console.error(error.response?.data?.detail);
     } finally {

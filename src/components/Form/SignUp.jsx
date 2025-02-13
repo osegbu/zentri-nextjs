@@ -41,6 +41,14 @@ const SignUp = () => {
         return;
       }
 
+      if (formData.hashed_password.length < 6) {
+        setMessage({
+          type: "error",
+          message: "Password must be at least 6 characters long.",
+        });
+        return;
+      }
+
       if (formData.hashed_password !== formData.confirm_password) {
         setMessage({ type: "error", message: "Passwords do not match." });
         return;
@@ -70,6 +78,7 @@ const SignUp = () => {
         })
         .catch((error) => {
           setLoading(false);
+          console.log(error);
           setMessage({
             type: "error",
             message: error.response?.data?.detail || error.message,

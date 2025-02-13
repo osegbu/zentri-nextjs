@@ -108,6 +108,7 @@ const PostContent = ({ post, main, mainPost }) => {
   };
 
   const LikePost = async () => {
+    if (isLoading) return;
     setIsLoading(true);
 
     const url = `${BASE_URL}/like/${post.id}`;
@@ -130,6 +131,7 @@ const PostContent = ({ post, main, mainPost }) => {
   };
 
   const BookMarkPost = async () => {
+    if (loading) return;
     setLoading(true);
 
     const url = `${BASE_URL}/bookmark/${post.id}`;

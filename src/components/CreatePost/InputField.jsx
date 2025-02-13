@@ -140,6 +140,16 @@ const InputField = ({ post }) => {
   }, []);
 
   const submitPost = useCallback(async () => {
+    // Validate poll options if the poll is open
+    if (isOpen && (!pollOptions[0] || !pollOptions[1])) {
+      SetNotification(
+        <div className="errorMsg">
+          Please fill out the first two poll options.
+        </div>
+      );
+      return;
+    }
+
     setIsSending(true);
     const formData = {};
     const image = [];
@@ -227,11 +237,29 @@ const InputField = ({ post }) => {
     editModal,
     commentModal,
     composeModal,
+    isOpen,
   ]);
 
   const customLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
+
+  const isSendDisabled = useMemo(() => {
+    const hasImagesOrMessage = !!selectedImages.length || !!message;
+    const hasValidPoll = !isOpen || (pollOptions[0] && pollOptions[1]);
+
+    return (
+      !hasImagesOrMessage || isSending || (post && isUnchanged) || !hasValidPoll
+    );
+  }, [
+    selectedImages.length,
+    message,
+    isSending,
+    post,
+    isUnchanged,
+    pollOptions,
+    isOpen,
+  ]);
 
   return (
     <div className={styles.inputContainer}>
@@ -410,11 +438,7 @@ const InputField = ({ post }) => {
           <span></span>
           <button
             className={styles.sendButton}
-            disabled={
-              (!selectedImages.length && !message) ||
-              isSending ||
-              (post && isUnchanged)
-            }
+            disabled={isSendDisabled}
             onClick={submitPost}
           >
             <b>{isSending ? <div className={styles.loading}></div> : "Send"}</b>

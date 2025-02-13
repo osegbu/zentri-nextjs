@@ -224,6 +224,10 @@
   height: 1.3rem;
 }
 @media (max-width: 640px) {
+  .loading {
+    margin: -8px !important;
+    display: none;
+  }
   .imageContainer {
     height: 180px;
   }
@@ -247,7 +251,7 @@
   }
   .others {
     width: 100%;
-    padding: 8px;
+    padding: 8px 16px;
     position: fixed;
     bottom: 0;
     left: 0;

@@ -21,8 +21,6 @@ export default async function RootLayout({ children }) {
     }
   }
 
-  console.log(authUser);
-
   return (
     <html lang="en">
       <head>

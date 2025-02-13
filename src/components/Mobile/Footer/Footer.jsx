@@ -27,6 +27,10 @@ const Footer = () => {
     composeModal(true);
   }, [state.composeModal]);
 
+  const customLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}&q=${quality || 75}`;
+  };
+
   useEffect(() => {
     if (state.composeModal) {
       document.documentElement.style.overflow = "hidden";
@@ -149,10 +153,12 @@ const Footer = () => {
       >
         <button className={styles.profileImage}>
           <Image
+            loader={customLoader}
             src={state.auth.profile_image || user_icon}
             alt={`${state.auth.full_name} profile image`}
             width={45}
             height={45}
+            priority
           />
         </button>
       </Link>

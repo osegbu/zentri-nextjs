@@ -48,7 +48,7 @@ const ProfileCard = ({ user }) => {
     axios
       .delete(`${BASE_URL}/follow/${state.auth.id}/${user.id}`)
       .then((response) => {
-        setIsFollowing(true);
+        setIsFollowing(false);
         setIsLoading(false);
         setFollower((prevFollower) => Math.max(prevFollower - 1, 0));
       })

@@ -21,6 +21,8 @@ export default async function RootLayout({ children }) {
     }
   }
 
+  console.log(authUser);
+
   return (
     <html lang="en">
       <head>
@@ -33,7 +35,7 @@ export default async function RootLayout({ children }) {
         {authUser ? (
           <StoreProvider authUser={authUser}>{children}</StoreProvider>
         ) : (
-          <StoreProvider>Nothing</StoreProvider>
+          <StoreProvider>{children}</StoreProvider>
         )}
       </body>
     </html>

@@ -50,7 +50,11 @@ const SignUp = () => {
       setMessage("");
 
       axios
-        .post(`${BASE_URL}/users/signup`, formData)
+        .post(`${BASE_URL}/users/signup`, {
+          full_name: formData.full_name,
+          user_name: formData.user_name.trim(),
+          hashed_password: formData.hashed_password,
+        })
         .then((response) => {
           setMessage({
             type: "success",

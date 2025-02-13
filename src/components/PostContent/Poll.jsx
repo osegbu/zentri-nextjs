@@ -22,30 +22,14 @@ const Poll = ({ post_id, total_votes, poll }) => {
     if (!state.auth?.id || !pollKey) return;
 
     setLoading(true);
-
+    let response;
     try {
-      let response;
       if (!is_voted) {
-        response = await axios.post(
-          `${BASE_URL}/votes/${post_id}/${poll.id}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        response = `${BASE_URL}/vote/${post_id}/${poll.id}`;
       } else {
-        response = await axios.delete(
-          `${BASE_URL}/votes/${post_id}/${poll.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        response = `${BASE_URL}/vote/${post_id}/${poll.id}`;
       }
-      updatePost(response.data);
+      // updatePost(response.data);
     } catch (error) {
       console.error(error);
     } finally {

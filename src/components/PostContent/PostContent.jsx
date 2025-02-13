@@ -109,60 +109,46 @@ const PostContent = ({ post, main, mainPost }) => {
 
   const LikePost = async () => {
     setIsLoading(true);
-    try {
-      let response;
-      if (!userLike) {
-        response = await axios.post(
-          `${BASE_URL}/like/${post.id}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      } else {
-        response = await axios.delete(`${BASE_URL}/like/${post.id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-      }
-      updatePost(response.data);
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error.response?.data?.detail);
-    }
+
+    const url = `${BASE_URL}/like/${post.id}`;
+    const headers = { Authorization: `Bearer ${token}` };
+
+    const request = !userLike
+      ? axios.post(url, {}, { headers })
+      : axios.delete(url, { headers });
+
+    request
+      .then((response) => {
+        updatePost(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response?.data?.detail);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const BookMarkPost = async () => {
     setLoading(true);
-    try {
-      let response;
-      if (!post.bookmark) {
-        response = await axios.post(
-          `${BASE_URL}/bookmark/${post.id}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      } else {
-        response = await axios.delete(`${BASE_URL}/bookmark/${post.id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-      }
-      updatePost(response.data);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error.response?.data?.detail);
-    }
+
+    const url = `${BASE_URL}/bookmark/${post.id}`;
+    const headers = { Authorization: `Bearer ${token}` };
+
+    const request = !post.bookmark
+      ? axios.post(url, {}, { headers })
+      : axios.delete(url, { headers });
+
+    request
+      .then((response) => {
+        updatePost(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response?.data?.detail);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleDeletePost = useCallback(() => {

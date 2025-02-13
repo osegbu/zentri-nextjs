@@ -18,63 +18,86 @@ const Poll = ({ post_id, total_votes, poll }) => {
     return percentage.toFixed(0);
   };
 
-  const castVote = async (pollKey, is_voted) => {
-    if (!state.auth?.id || !pollKey) return;
+  const vote = async (poll_id) => {
+    if (!state.auth?.id || !token) {
+      console.error("User not authenticated or token missing");
+      return;
+    }
 
     setLoading(true);
 
     try {
-      let response;
-      if (!is_voted) {
-        response = await axios.post(
-          `${BASE_URL}/vote/${post_id}/${poll.id}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      } else {
-        response = await axios.delete(
-          `${BASE_URL}/vote/${post_id}/${poll.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-      }
-      // updatePost(response.data);
+      const response = await axios.post(
+        `${BASE_URL}/vote/${post_id}/${poll_id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      updatePost(response.data);
     } catch (error) {
-      console.error(error.response?.data?.detail);
+      console.error(
+        "Error casting vote:",
+        error.response?.data || error.message
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const remove_vote = async (poll_id) => {
+    if (!state.auth?.id || !token) {
+      console.error("User not authenticated or token missing");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await axios.delete(
+        `${BASE_URL}/vote/${post_id}/${poll_id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      updatePost(response.data);
+    } catch (error) {
+      console.error(
+        "Error removing vote:",
+        error.response?.data || error.message
+      );
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <div
-        className={`${styles.pollDiv} ${poll.is_voted ? styles.active : ""}`}
-        onClick={(e) => {
-          castVote(poll.id, poll.is_voted);
-          e.stopPropagation();
-        }}
-      >
-        <div className={styles.pollText}>
-          {loading && <div className={styles.loadingPoll}></div>}
-          {poll.option}
-        </div>
-        <div className={styles.voteCount}>
-          {`${getVotePercent(poll.votes)}%`}
-        </div>
-        <div
-          className={styles.voted}
-          style={{ width: `${getVotePercent(poll.votes)}%` }}
-        ></div>
+    <div
+      className={`${styles.pollDiv} ${poll.is_voted ? styles.active : ""}`}
+      onClick={(e) => {
+        if (loading) return;
+        if (poll.is_voted) {
+          remove_vote(poll.id);
+        } else {
+          vote(poll.id);
+        }
+        e.stopPropagation();
+      }}
+    >
+      <div className={styles.pollText}>
+        {loading && <div className={styles.loadingPoll}></div>}
+        {poll.option}
       </div>
-    </>
+      <div className={styles.voteCount}>{`${getVotePercent(poll.votes)}%`}</div>
+      <div
+        className={styles.voted}
+        style={{ width: `${getVotePercent(poll.votes)}%` }}
+      ></div>
+    </div>
   );
 };
 

@@ -174,9 +174,11 @@ const Login = () => {
         </form>
 
         <div className={styles.otherOption}>
-          Don&apos;t have an account?{" "}
+          Don&apos;t have an account ? &nbsp;
           <b>
-            <Link href="/signup">Sign Up</Link>
+            <Link href="/signup" onClick={() => setPageLoad()}>
+              Sign Up
+            </Link>
           </b>
         </div>
       </div>

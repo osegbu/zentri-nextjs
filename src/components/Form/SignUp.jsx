@@ -251,9 +251,11 @@ const SignUp = () => {
         </form>
 
         <div className={styles.otherOption}>
-          Already have an account?{" "}
+          Already have an account ? &nbsp;
           <b>
-            <Link href="/login">Login</Link>
+            <Link href="/login" onClick={() => setPageLoad()}>
+              Login
+            </Link>
           </b>
         </div>
       </div>

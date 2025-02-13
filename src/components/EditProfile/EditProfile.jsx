@@ -2,7 +2,7 @@
 import styles from "./edit.module.css";
 import user_icon from "@/icons/user.png";
 import Image from "next/image";
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { uploadToS3 } from "@/lib/uploadToS3";
@@ -38,20 +38,6 @@ const EditProfile = ({ children }) => {
   const editableRef = useRef(null);
   const fileProfileRef = useRef(null);
   const fileCoverRef = useRef(null);
-
-  useEffect(() => {
-    if (editableRef.current) {
-      editableRef.current.innerHTML = bio;
-    }
-    setInitialState({
-      full_name,
-      user_name,
-      bio,
-      location,
-      profile_image,
-      cover_image,
-    });
-  }, []);
 
   const handleInputChange = useCallback(() => {
     const content = editableRef.current.innerText.trim();

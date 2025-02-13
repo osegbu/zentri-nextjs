@@ -21,7 +21,7 @@ const Compose = ({ children, post }) => {
     return () => {
       window.removeEventListener("popstate", handlePopState);
     };
-  }, []);
+  }, [commentModal, editModal, composeModal]);
 
   return (
     <div className={styles.main}>

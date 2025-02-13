@@ -2,7 +2,6 @@
 import styles from "./form.module.css";
 import { useCallback, useRef, useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useStore } from "@/lib/StoreContext";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -11,8 +10,6 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const SignUp = () => {
   const { closePageLoad, setPageLoad } = useStore();
-
-  const router = useRouter();
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState(false);
   const [signing, setSigning] = useState(false);
@@ -28,7 +25,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (!signing) closePageLoad();
-  });
+  }, [closePageLoad]);
 
   const handleSubmit = useCallback(
     async (e) => {

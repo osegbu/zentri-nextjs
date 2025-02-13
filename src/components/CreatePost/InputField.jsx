@@ -67,7 +67,13 @@ const InputField = ({ post }) => {
         initialSelectedImages.current = [];
       }
     }
-  }, [post]);
+  }, [
+    post,
+    editableRef,
+    initialMessage,
+    initialPollOptions,
+    initialSelectedImages,
+  ]);
 
   const isUnchanged = useMemo(() => {
     if (!post) return false;
@@ -260,7 +266,12 @@ const InputField = ({ post }) => {
                     : styles.imageContainer
                 }
               >
-                <img src={media.url} alt={`Selected ${index}`} />
+                <Image
+                  src={media.url}
+                  alt={`Selected ${index}`}
+                  height={300}
+                  width={300}
+                />
                 <button
                   className={styles.removeButton}
                   onClick={() => handleRemoveImage(index)}

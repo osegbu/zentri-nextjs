@@ -22,16 +22,18 @@ const BookmarkComponent = () => {
           headers: { Authorization: `Bearer ${token}` },
         });
         setPost(response.data);
-        setLoading(false);
       } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
         setLoading(false);
       }
     };
+
     if (!hasFetched.current && state.auth.id) {
       hasFetched.current = true;
       FetchPost();
     }
-  }, [state.auth.id]);
+  }, [state.auth.id, setPost, token]);
 
   return (
     <div className={styles.container}>

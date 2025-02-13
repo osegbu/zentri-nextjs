@@ -26,7 +26,7 @@ const ProfileComponent = ({ posts, user_id }) => {
       hasFetched.current = true;
       FetchPost();
     }
-  }, [state.auth.id, state.post]);
+  }, [state.auth.id, state.post, setLoading, posts, setPost]);
 
   return (
     <div>

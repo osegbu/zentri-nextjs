@@ -85,7 +85,7 @@ const PostContent = ({ post, main, mainPost }) => {
       document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
-  }, [state]);
+  }, [state.commentModal, state.editModal]);
 
   const timeAgo = (date) => {
     const now = new Date();

@@ -2,7 +2,6 @@
 import Link from "next/link";
 import styles from "./form.module.css";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useStore } from "@/lib/StoreContext";
 import axios from "axios";
@@ -10,8 +9,6 @@ import axios from "axios";
 const Login = () => {
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const { closePageLoad, setPageLoad } = useStore();
-
-  const router = useRouter();
   const passwordRef = useRef();
   const [pwdType, SetPwdType] = useState("password");
 
@@ -25,7 +22,7 @@ const Login = () => {
 
   useEffect(() => {
     if (!signing) closePageLoad();
-  });
+  }, [closePageLoad]);
 
   const handleSubmit = useCallback(
     async (e) => {
@@ -179,7 +176,7 @@ const Login = () => {
         </form>
 
         <div className={styles.otherOption}>
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <b>
             <Link href="/signup">Sign Up</Link>
           </b>

@@ -1,6 +1,5 @@
 "use client";
 import styles from "./postContent.module.css";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import user_icon from "@/icons/user.png";
@@ -15,7 +14,6 @@ const CommentPost = ({ post }) => {
       totalVotes += poll.votes;
     });
   }
-  const router = useRouter();
 
   function timeAgo(date) {
     const now = new Date();

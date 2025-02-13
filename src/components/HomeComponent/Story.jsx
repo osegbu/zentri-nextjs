@@ -38,7 +38,7 @@ const Story = ({ slug }) => {
     } else if (state.post.length > 0) {
       setLoading(false);
     }
-  }, [state, slug, fetchPost]);
+  }, [state.auth.id, state.post, fetchPost]);
 
   const currentPost = state.post.find((post) => post.id == slug);
 

@@ -8,7 +8,6 @@ export async function middleware(request) {
   const sessionCookie = request.cookies.get("sessionData");
   const { pathname } = request.nextUrl;
 
-  // Allow specific routes without authentication
   if (
     pathname === "/login" ||
     pathname === "/signup" ||
@@ -20,14 +19,12 @@ export async function middleware(request) {
     return NextResponse.next();
   }
 
-  // Redirect to login if no session cookie exists
   if (!sessionCookie) {
     console.log("No session cookie, redirecting to login.");
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
   try {
-    // Verify session with backend
     console.log("Verifying session with backend...");
     const authUser = await axios.get(`${BASE_URL}/users/me`, {
       headers: { Authorization: `Bearer ${sessionCookie.value}` },
@@ -37,7 +34,6 @@ export async function middleware(request) {
       console.log("Session verified, proceeding with request.");
       const response = NextResponse.next();
 
-      // Encode user data and set custom header
       const encodedMessage = Buffer.from(
         JSON.stringify(authUser.data)
       ).toString("base64");
@@ -55,6 +51,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  // Matcher to avoid applying middleware to API and static requests
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

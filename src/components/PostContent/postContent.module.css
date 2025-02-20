@@ -274,7 +274,7 @@
   display: flex;
   width: 100%;
   position: relative;
-  border: 2px solid var(--border);
+  border: 2px solid silver;
 }
 .pollDiv:hover {
   cursor: pointer;
